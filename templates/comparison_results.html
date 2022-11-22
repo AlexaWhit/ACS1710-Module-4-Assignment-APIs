@@ -6,8 +6,8 @@
         TODO: Replace the hard-coded cities and date below with data from the 
         server.
     #}
-    <h1>Weather in [CITY1] and [CITY2]</h1>
-    <p>[TODAYS_DATE]</p>
+    <h1>Weather in {{first_city.city}} and {{second_city.city}}</h1>
+    <p>{{first_city.date}}</p>
 
 
     {#
@@ -15,19 +15,27 @@
         Replace 'F' with the appropriate units.
     #}
     <p>
-        It is [NUM_DEGREES] [UNITS] [WARMER/COLDER] in [CITY1] than in [CITY2] today.
+        {% if first_city.temp > second_city.temp %}
+            It is {{first_city.temp - second_city.temp}} {{first_city.units_letter}} warmer in {{first_city.city}} than in {{second_city.city}} today.
+        {% elif first_city.temp < second_city.temp %}
+            It is {{second_city.temp - first_city.temp}} colder in {{first_city.city}} than in {{second_city.city}} today.
+        {% endif %}
     </p>
 
     <p>
-        The humidity in [CITY1] is [AMOUNT] [GREATER/LESS] than in [CITY2].
+        {% if first_city.humidity > second_city.humidity %}
+            The humidity in {{first_city.city}} is {{ ((first.city.humidity-second_city.humidity)/100)|round(2)|int }} greater than in {{second_city.city}}.
+        {% elif first_city.humidity < second_city.humidity %}
+            The humidity in {{first_city.city}} is {{ ((second.city.humidity-first.humidity)/100)|round(2)|int }} less than in {{second_city.city}}.
+        {% endif %}
     </p>
 
     <p>
-        The wind speed in [CITY1] is [AMOUNT] [GREATER/LESS] than in [CITY2].
+        The wind speed in {{first_city.city}} is [AMOUNT] [GREATER/LESS] than in {{second_city.city}}.
     </p>
 
     <p>
-        The sun sets in [CITY1] [HOURS] hours [EARLIER/LATER] than in [CITY2].
+        The sun sets in {{first_city.city}} [HOURS] hours [EARLIER/LATER] than in {{second_city.city}}.
     </p>
     
 </section>
