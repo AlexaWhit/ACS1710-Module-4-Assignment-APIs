@@ -14,28 +14,28 @@
         TODO: Add the temperature, description, and min & max temperature below.
         Replace 'F' with the appropriate units.
     #}
-    <h4>Temperature:</h4>
+    <h5><u>Temperature:</u></h5>
     {% if first_city.temp > second_city.temp %}
         <p>It is {{ (first_city.temp - second_city.temp)|round(2)|int }}° {{first_city.units_letter}} warmer in {{first_city.city}} than in {{second_city.city}} today.</p>
     {% elif first_city.temp < second_city.temp %}
         <p>It is {{ (second_city.temp - first_city.temp)|round(2)|int }}° {{first_city.units_letter}} colder in {{first_city.city}} than in {{second_city.city}} today.</p>
     {% endif %}
 
-    <h4>Humidity:</h4>
+    <h5><u>Humidity:</u></h5>
     {% if first_city.humidity > second_city.humidity %}
         <p>The humidity in {{first_city.city}} is {{ (first_city.humidity-second_city.humidity)|round(2)|int }}% greater than in {{second_city.city}}.</p>
     {% elif first_city.humidity < second_city.humidity %}
         <p>The humidity in {{first_city.city}} is {{ (second_city.humidity-first_city.humidity)|round(2)|int }}% less than in {{second_city.city}}.</p>
     {% endif %}
 
-    <h4>Wind Speed:</h4>
+    <h5><u>Wind Speed:</u></h5>
     {% if first_city.wind_speed > second_city.wind_speed %}
         <p>The wind speed in {{first_city.city}} is {{ (first_city.wind_speed - second_city.wind_speed)|round(2)|int }}mph greater than in {{second_city.city}}.</p>
     {% elif first_city.wind_speed < second_city.wind_speed %}
         <p>The wind speed in {{first_city.city}} is {{ (second_city.wind_speed - first_city.wind_speed)|round(2)|int}}mph less than in {{second_city.city}}.</p>
     {% endif %}
 
-    <h4>Sunset:</h4>
+    <h5><u>Sunset:</u></h5>
     {% if first_city.sunset > second_city.sunset %}
         <p>The sun sets in {{first_city.city}} {{first_city.sunset - second_city.sunset}} hours earlier than in {{second_city.city}}.</p>
     {% elif first_city.sunset < second_city.sunset %}
