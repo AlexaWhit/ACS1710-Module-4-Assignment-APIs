@@ -134,10 +134,10 @@ def comparison_results():
         'sunset': datetime.fromtimestamp(city2_data['sys']['sunset']),
         'units_letter': get_letter_for_units(units),
     }
-    
+
     context = {
         'first_city': first_city,
-        'second_city': second_city
+        'second_city': second_city,
     }
 
     return render_template('comparison_results.html', **context)
